@@ -11,3 +11,7 @@ spring:
     password: "123"
     driverClassName: org.postgresql.Driver
 
+news:
+  api:
+    url: https://newsapi.org/v2/
+    key: 461fa622e64b4fb080f503799fb040fb

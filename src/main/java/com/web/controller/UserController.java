@@ -1,7 +1,6 @@
 package com.web.controller;
 
 import com.web.models.User;
-import com.web.repository.UserRepo;
 import com.web.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
