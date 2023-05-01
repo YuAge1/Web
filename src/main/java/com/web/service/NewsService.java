@@ -23,23 +23,18 @@ public class NewsService {
     }
 
     public List<News> findAll() {
-//        String str = client.getNews().stream().toString();
         return client.getNews().stream()
-                .map(this::toNews)
+                .map(this::addNews)
                 .collect(collectingAndThen(toList(), ImmutableList::copyOf));
-
     }
 
-    private News toNews(@NonNull Articles input){
+    private News addNews(@NonNull Articles input){
         return new News(
                 input.getSource().getId(),
-                input.getSource().getName(),
                 input.getTitle(),
                 input.getDescription(),
-                input.getContent(),
                 input.getAuthor(),
                 input.getUrl(),
-                input.getUrlToImage(),
                 input.getPublishedAt());
     }
 }
