@@ -1,6 +1,8 @@
 package com.web.controller;
 
+import com.web.models.News;
 import com.web.models.User;
+import com.web.service.NewsService;
 import com.web.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,10 +17,19 @@ import java.util.List;
 @RequiredArgsConstructor
 public class UserController {
     private UserService userService;
+    private final NewsService newsService;
 
     @Autowired
-    public UserController(UserService userService) {
+    public UserController(UserService userService, NewsService newsService) {
         this.userService = userService;
+        this.newsService = newsService;
+    }
+
+    @RequestMapping("/news")
+    public String findLastNews(Model model){
+        List<News> news = newsService.findAll();
+        model.addAttribute("news", news);
+        return "page-with-news";
     }
 
     @RequestMapping("/users")
