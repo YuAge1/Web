@@ -1,36 +1,30 @@
 package com.web.models;
 
-import lombok.*;
-
 import javax.persistence.*;
 
 @Entity
 @Table(name = "news")
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
 public class News {
     @Id
     private String id;
-
-    private String name;
-
     private String title;
-
-//    @Column(length = 10000)
+    @Column(length = 10000)
     private String description;
-
-//    @Column(length = 10000)
-    private String content;
-
     private String author;
-
     private String url;
-
-//    @Column(name = "image")
-    private String urlToImage;
-
-//    @Column(name = "date")
+    @Column(name = "date")
     private String publishedAt;
+
+    public News(String id, String title, String description, String author, String url, String publishedAt) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.author = author;
+        this.url = url;
+        this.publishedAt = publishedAt;
+    }
+
+    public News() {
+
+    }
 }
