@@ -2,21 +2,17 @@ package com.web.controller;
 
 import com.web.models.News;
 import com.web.service.NewsService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController
+@Controller
+@RequiredArgsConstructor
 public class NewsController {
     private final NewsService newsService;
-
-    @Autowired
-    public NewsController(NewsService newsService) {
-        this.newsService = newsService;
-    }
 
     @RequestMapping("/api/news")
     public List<News> getAllNews(){

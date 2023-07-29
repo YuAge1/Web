@@ -1,7 +1,6 @@
 package com.web.controller;
 
 import com.web.models.User;
-import com.web.service.NewsService;
 import com.web.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +29,7 @@ public class UserController {
     }
 
     @GetMapping("/new")
-    public String createUserForm(){
+    public String createUserForm(User user){
         return "new";
     }
 

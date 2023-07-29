@@ -1,9 +1,12 @@
 package com.web.models;
 
+import lombok.Getter;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "news")
+@Getter
 public class News {
     @Id
     private String id;
@@ -24,7 +27,5 @@ public class News {
         this.publishedAt = publishedAt;
     }
 
-    public News() {
-
-    }
+    public News() {}
 }
